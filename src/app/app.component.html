@@ -14,7 +14,19 @@
            Optionally, display it in your template.
       -->
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-
+        <div id="user-data">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              ngModel
+              name="email"
+              email
+            >
+          </div>
+        </div>
       </form>
     </div>
   </div>

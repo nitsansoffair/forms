@@ -10,6 +10,19 @@ export class AppComponent {
   @ViewChild('f') signupForm: NgForm;
 
   defaultSubscription = 'advanced';
+  submitted = false;
+  user: {
+    email: '',
+    subscription: '',
+    password: ''
+  };
 
-  onSubmit() {}
+  onSubmit() {
+    this.user.email = this.signupForm.value.email;
+    this.user.subscription = this.signupForm.value.subscription;
+    this.user.password = this.signupForm.value.password;
+    this.submitted = true;
+
+    this.signupForm.reset();
+  }
 }

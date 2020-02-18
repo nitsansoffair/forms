@@ -61,8 +61,15 @@
         >
           Submit
         </button>
-        <p *ngIf="f.touched && !f.valid">Please fill a valid form!</p>
+        <p *ngIf="f.touched && !f.valid">Please enter a valid form!</p>
       </form>
+      <div class="row" *ngIf="submitted">
+        <div class="col-xs-12">
+          <h3>Your Data</h3>
+          <p>Email: {{ user.email }}</p>
+          <p>Subscription: {{ user.subscription }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

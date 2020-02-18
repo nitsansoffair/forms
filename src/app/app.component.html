@@ -14,44 +14,51 @@
            Optionally, display it in your template.
       -->
       <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <div id="user-data">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              class="form-control"
-              ngModel
-              name="email"
-              required
-              email
-            >
-          </div>
-          <div class="form-group">
-            <label for="subscription">Subscription</label>
-            <select
-              id="subscription"
-              class="form-control"
-              [ngModel]="defaultSubscription"
-              name="subscription"
-            >
-              <option value="basic">Basic</option>
-              <option value="advanced">Advanced</option>
-              <option value="pro">Pro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              class="form-control"
-              ngModel
-              name="password"
-              required
-            >
-          </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email
+          >
+          <p *ngIf=""></p>
         </div>
+        <div class="form-group">
+          <label for="subscription">Subscription</label>
+          <select
+            id="subscription"
+            class="form-control"
+            [ngModel]="defaultSubscription"
+            name="subscription"
+          >
+            <option value="basic">Basic</option>
+            <option value="advanced">Advanced</option>
+            <option value="pro">Pro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            ngModel
+            name="password"
+            required
+          >
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid"
+        >
+          Submit
+        </button>
       </form>
     </div>
   </div>

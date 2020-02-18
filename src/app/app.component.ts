@@ -11,7 +11,7 @@ export class AppComponent {
 
   defaultSubscription = 'advanced';
   submitted = false;
-  user: {
+  user = {
     email: '',
     subscription: '',
     password: ''

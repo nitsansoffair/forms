@@ -27,6 +27,19 @@
               email
             >
           </div>
+          <div class="form-group">
+            <label for="subscription">Subscription</label>
+            <select
+              id="subscription"
+              class="form-control"
+              [ngModel]="defaultSubscription"
+              name="subscription"
+            >
+              <option value="basic">Basic</option>
+              <option value="advanced">Advanced</option>
+              <option value="pro">Pro</option>
+            </select>
+          </div>
         </div>
       </form>
     </div>

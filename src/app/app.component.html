@@ -24,9 +24,9 @@
             name="email"
             required
             email
-            #email
+            #email="ngModel"
           >
-          <p *ngIf=""></p>
+          <p *ngIf="email.touched && !email.valid">Please enter a valid email!</p>
         </div>
         <div class="form-group">
           <label for="subscription">Subscription</label>
@@ -50,7 +50,9 @@
             ngModel
             name="password"
             required
+            #password="ngModel"
           >
+          <p *ngIf="password.touched && !password.valid">Please enter a password!</p>
         </div>
         <button
           class="btn btn-primary"
@@ -59,6 +61,7 @@
         >
           Submit
         </button>
+        <p *ngIf="f.touched && !f.valid">Please fill a valid form!</p>
       </form>
     </div>
   </div>

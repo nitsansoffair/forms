@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import validate = WebAssembly.validate;
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,21 +13,27 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      projectName: new FormControl(null, [Validators.required, this.forbiddenProjectName]),
+      projectName: new FormControl(null, Validators.required, this.forbiddenProjectName),
       email: new FormControl(null, [Validators.required, Validators.email]),
       projectStatus: new FormControl(null)
     });
   }
 
-  onSubmit() {}
+  onSubmit() {
+    console.log(this.signupForm.value);
+  }
 
-  forbiddenProjectName(control: FormControl): {[name: string]: boolean} {
-    if (control.value === 'Test') {
-      return {
-        forbiddenProjectName: true
-      };
-    }
-
-    return null;
+  forbiddenProjectName(control: FormControl): Promise<any> | Observable<any> {
+    return new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'Test') {
+          resolve({
+            forbiddenProjectName: true
+          });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
   }
 }

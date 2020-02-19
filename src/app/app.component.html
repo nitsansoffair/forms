@@ -53,10 +53,8 @@
             <option value="critical">Critical</option>
             <option value="finished">Finished</option>
           </select>
-          <span class="help-block" *ngIf="signupForm.get('projectStatus').touched && !signupForm.get('projectStatus').valid">
-            Please enter a valid project status!
-          </span>
         </div>
+        <button class="btn btn-default">Submit</button>
       </form>
     </div>
   </div>

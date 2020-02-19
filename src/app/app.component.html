@@ -16,14 +16,13 @@
       -->
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <div class="form-control">
-          <label for="projectName">
-            <input
-              type="text"
-              id="projectName"
-              name="projectName"
-              formControlName="projectName"
-            >
-          </label>
+          <label for="projectName"></label>
+          <input
+            type="text"
+            id="projectName"
+            name="projectName"
+            formControlName="projectName"
+          >
           <span class="help-block" *ngIf="signupForm.get('projectName').touched && !signupForm.get('projectName').valid">
             Please enter a valid project name!
           </span>

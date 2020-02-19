@@ -43,11 +43,18 @@
         </div>
         <div class="form-group">
           <label for="email">Project Status</label>
-          <select name="" id=""></select>
-          <select name="" id=""></select>
-          <select name="" id=""></select>
+          <select
+            name="projectStatus"
+            id="projectStatus"
+            class="form-control"
+            formControlName="projectStatus"
+          >
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select>
           <span class="help-block" *ngIf="signupForm.get('projectStatus').touched && !signupForm.get('projectStatus').valid">
-            Please enter a valid email!
+            Please enter a valid project status!
           </span>
         </div>
       </form>

@@ -18,4 +18,14 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {}
+
+  requiredProjectName(control: FormControl): [{name: string, boolean}] {
+    if (!control.value) {
+      return {
+        required: true;
+      };
+    }
+
+    return null;
+  }
 }

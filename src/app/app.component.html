@@ -21,8 +21,12 @@
               type="text"
               id="projectName"
               name="projectName"
+              formControlName="projectName"
             >
           </label>
+          <span class="help-block" *ngIf="signupForm.get('projectName').touched && !signupForm.get('projectName').valid">
+            Please enter a valid project name!
+          </span>
         </div>
       </form>
     </div>

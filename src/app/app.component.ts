@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      projectName: new FormControl(null),
+      projectName: new FormControl(null, this.requiredProjectName),
       email: new FormControl(null),
       projectStatus: new FormControl(null)
     });
@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
 
   onSubmit() {}
 
-  requiredProjectName(control: FormControl): [{name: string, boolean}] {
+  requiredProjectName(control: FormControl): {[name: string]: boolean} {
     if (!control.value) {
       return {
-        required: true;
+        required: true
       };
     }
 

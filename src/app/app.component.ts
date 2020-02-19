@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import validate = WebAssembly.validate;
 
 @Component({
   selector: 'app-root',
@@ -11,18 +12,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = new FormGroup({
-      projectName: new FormControl(null, this.requiredProjectName),
-      email: new FormControl(null),
+      projectName: new FormControl(null, [Validators.required, this.forbiddenProjectName]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       projectStatus: new FormControl(null)
     });
   }
 
   onSubmit() {}
 
-  requiredProjectName(control: FormControl): {[name: string]: boolean} {
-    if (!control.value) {
+  forbiddenProjectName(control: FormControl): {[name: string]: boolean} {
+    if (control.value === 'Test') {
       return {
-        required: true
+        forbiddenProjectName: true
       };
     }
 
